@@ -219,12 +219,12 @@ for(let i = 0; i < open.length; i++) {
   e.stopPropagation();
  const toFav = open[i].parentElement;
  console.log(toFav);
- open[i].classList.add('hide')
- close[i].classList.remove('hide')
+ open[i].classList.add('hide');
+ close[i].classList.remove('hide');
  list.removeChild(toFav);
-  favStock.appendChild(toFav);
+ favStock.appendChild(toFav);
  console.log(favChildren);
-  });
+});
 }
 
 for (let i = 0; i < close.length; i++) {
@@ -235,12 +235,12 @@ console.log(notFav);
 open[i].classList.remove('hide');
 close[i].classList.add('hide');
    favStock.removeChild(notFav);
-    list.appendChild(notFav);
+   list.appendChild(notFav);
 })
-}
+};
 
 mode.addEventListener('click', () => {
-    closeModal();
+  closeModal();
 });
 
 overlay.addEventListener('click', () => {
@@ -264,13 +264,13 @@ function closeInstructions() {
 };
  
 function openModal() {
-    mode.classList.add('open');
-    overlay.classList.add('open');
+  mode.classList.add('open');
+  overlay.classList.add('open');
 };
 
 function closeModal() {
-    mode.classList.remove('open');
-    overlay.classList.remove('open');
+  mode.classList.remove('open');
+  overlay.classList.remove('open');
 };
 
 function stkName(tick) {
@@ -287,9 +287,9 @@ alphaFavs.addEventListener('click', () => {
 })
 
  function alphaSort() {
-  var list, i, switching, listitems, shouldSwitch;
-  list = document.getElementById('list');
-  switching = true;
+  var list, i, tickerName, switching, listitems, shouldSwitch;
+    list = document.getElementById('list');
+    switching = true;
   while(switching) {
       switching = false;
       listitems = list.getElementsByTagName('li');
@@ -300,26 +300,30 @@ alphaFavs.addEventListener('click', () => {
       break;
   }
   }
-  listitems[i].parentNode.insertBefore(listitems[i + 1], listitems[i]); 
-  switching = true;
+  if(shouldSwitch){
+    listitems[i].parentNode.insertBefore(listitems[i + 1], listitems[i]); 
+    switching = true;
+}
 }
 };
 function reverseAlpha() {
   var list, i, switching, listitems, shouldSwitch;
-  list = document.getElementById('list')
-  switching = true;
+    list = document.getElementById('list')
+  s witching = true;
   while(switching) {
     switching = false;
     listitems = list.getElementsByTagName('li');
   for(i  = 0; i < (listitems.length - 1); i++) {
-  shouldSwitch = false;
-if (listitems[i].innerHTML.toLowerCase() < listitems[i + 1].innerHTML.toLowerCase()){
-  shouldSwitch = true;
-  break;
+    shouldSwitch = false;
+  if (listitems[i].innerHTML.toLowerCase() < listitems[i + 1].innerHTML.toLowerCase()){
+    shouldSwitch = true;
+    break;
 }
 };
-listitems[i].parentNode.insertBefore(listitems[i + 1], listitems[i]); 
-switching = true;
+if(shouldSwitch) {
+  listitems[i].parentNode.insertBefore(listitems[i + 1], listitems[i]); 
+  switching = true;
+}
 }
 };
 function alphabetize() {
@@ -332,20 +336,22 @@ reverseAlpha();
 };
 function favSort() {
   var favStock, i, switching, listitems, shouldSwitch;
-  favStock = document.getElementById('fav-stock');
-  switching = true;
+    favStock = document.getElementById('fav-stock');
+    switching = true;
   while(switching) {
-      switching = false;
-      listitems = favStock.getElementsByTagName('li');
+    switching = false;
+    listitems = favStock.getElementsByTagName('li');
   for(i  = 0; i < (listitems.length - 1); i++) {
-      shouldSwitch = false;
+    shouldSwitch = false;
   if (listitems[i].innerHTML.toLowerCase() > listitems[i + 1].innerHTML.toLowerCase()){
-      shouldSwitch = true;
-      break;
+    shouldSwitch = true;
+    break;
   }
   };
-  listitems[i].parentNode.insertBefore(listitems[i + 1], listitems[i]); 
-  switching = true;
+  if(shouldSwitch) {
+    listitems[i].parentNode.insertBefore(listitems[i + 1], listitems[i]); 
+    switching = true;
+}
 }
 };
 function reverseFavs() {
@@ -362,8 +368,10 @@ function reverseFavs() {
     break;
   }
   }
-  listitems[i].parentNode.insertBefore(listitems[i + 1], listitems[i]); 
-  switching = true;
+  if(shouldSwitch) {
+    listitems[i].parentNode.insertBefore(listitems[i + 1], listitems[i]); 
+    switching = true;
+  }
   }
   };
   function alphabetFavs() {

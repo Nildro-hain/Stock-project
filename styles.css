@@ -62,7 +62,7 @@ h2.collect, h2.fav-heading{
     border-radius: 15px;
     padding: 2.2em 2.2em;
     background-color: lightgray;
-  }
+}
 #overlay {
     display: none;
     z-index: 1;
@@ -227,13 +227,13 @@ button.to-instructions{
         grid-template-columns: 3fr 3fr 3fr 3fr;
     }
    .stock-api {
-    width: auto;
-    height: auto;
-   transform: translate(-50%, 0);
-    top: 0;
-    left: 50%;
-    margin-left: 10px;
-    margin-right: 10px;
+        width: auto;
+        height: auto;
+        transform: translate(-50%, 0);
+        top: 0;
+        left: 50%;
+        margin-left: 10px;
+        margin-right: 10px;
    }
 }
 @media (max-width: 765px) {
